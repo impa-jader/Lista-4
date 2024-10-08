@@ -1,4 +1,5 @@
 #Jader Duarte questão 1
+# Não funciona direito mas conceitualmente é quase lá 
 class TreeNode:
     def __init__(self, val=0):
         self.val = val
@@ -81,4 +82,17 @@ insert_node(root, 1)
 # Testando novamente
 print(is_balanced(root))  # Deve retornar False
 
-# Questão
+# Questão 2
+import random as rd
+class Pilha:
+    def __init__(self,l):
+        self.coord = l
+    
+    def pop(self):
+        n=rd.randint(0,len(self.coord)-1)
+        x= self.coord[n]
+        self.coord[n]=self.coord[0]
+        self.coord.pop(0) # Assumindo que nesta pilha, cujo nome aparentemente é uma pegadinha, a ordem não importa.
+        return x
+    def push(self,A):
+        self.coord.append(A)
