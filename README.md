@@ -1,4 +1,5 @@
-#Jader Duarte questão 1
+#Jader Duarte 
+# Questão 1 #
 
 class TreeNode:
     def __init__(self, val=0):
@@ -78,7 +79,7 @@ insert_node(root, 1)
 # Testando novamente
 print(is_balanced(root))  # Deve retornar False
 
-# Questão 2
+## Questão 2 ##
 import random as rd
 class Pilha:
     def __init__(self,l):
@@ -93,11 +94,12 @@ class Pilha:
     def push(self,A):
         self.coord.append(A)
 
-# Questão 4
+#### Questão 4 ####
 # Não estou familharizado com os tipos de distribuição desta questão. Portanto não sei dizer se está funcionando corretamente
 import numpy as np
 import matplotlib.pyplot as plt
 from scipy.stats import uniform, norm, t
+from scipy.spatial import ConvexHull
 
 def Sort_points():
     N= int(input("Quantos pontos \n"))
@@ -116,7 +118,7 @@ def Sort_points():
         y = t.rvs(df=1, loc=0, scale=0.5, size=N)
         
 
-    return [x,y]
+    return x,y
 
 coords=Sort_points()
 plt.scatter(coords[0],coords[1])
@@ -124,3 +126,9 @@ plt.title('Pontos Sorteados')
 plt.xlabel('Eixo x')
 plt.ylabel('Eixo y')
 plt.show()
+
+##### Questão 5 #####
+
+def desfeixo_convexo(pontos):
+  hull = ConvexHull(pontos)
+  return pontos[hull.vertices]
