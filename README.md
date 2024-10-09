@@ -118,7 +118,7 @@ def Sort_points():
         y = t.rvs(df=1, loc=0, scale=0.5, size=N)
         
 
-    return x,y
+    return np.array([x,y])
 
 coords=Sort_points()
 plt.scatter(coords[0],coords[1])
@@ -128,7 +128,4 @@ plt.ylabel('Eixo y')
 plt.show()
 
 ##### Questão 5 #####
-
-def desfeixo_convexo(pontos):
-  hull = ConvexHull(pontos)
-  return pontos[hull.vertices]
+""" Não sei :("""
