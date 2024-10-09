@@ -1,5 +1,5 @@
 #Jader Duarte questão 1
-# Não funciona direito mas conceitualmente é quase lá 
+
 class TreeNode:
     def __init__(self, val=0):
         self.val = val
@@ -36,31 +36,27 @@ def is_balanced(root):
     ja_foi=True #pra entrar no loop
     while ja_foi or atual!=[]: # no final do loop os galhos seguintes serão atual. portanto quando terminar de percorrer atual = []
         ja_foi=False 
-        n_contei_nova_camada=True
+        contar+=1 
+        proximo=[]
         for i in atual:
-            proximo=[]
             if i.left:
                 proximo.append(i.left)
-                if n_contei_nova_camada:
-                    contar+=1
-                    n_contei_nova_camada=False
             elif min_is_base:
-                min=1+ contar
+                min=contar
                 min_is_base= False
             if i.right:
                 proximo.append(i.right)
-                if n_contei_nova_camada:
-                    contar+=1
-                    n_contei_nova_camada=False
             elif min_is_base:
-                min= contar+1
+                min= contar
                 min_is_base= False
+        print([i.val for i in atual]) #teste 
         atual= proximo
     max= int(contar)
     if max-min>1:
         return False
     else:
         return True
+    
     
 # Criando a árvore e testando
 root = TreeNode(10)
