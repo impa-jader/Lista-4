@@ -92,3 +92,35 @@ class Pilha:
         return x
     def push(self,A):
         self.coord.append(A)
+
+# Questão 4
+# Não estou familharizado com os tipos de distribuição desta questão. Portanto não sei dizer se está funcionando corretamente
+import numpy as np
+import matplotlib.pyplot as plt
+from scipy.stats import uniform, norm, t
+
+def Sort_points():
+    N= int(input("Quantos pontos \n"))
+    pick = input("""Escolha a distribuição: 
+              (1) Uniforme
+              (2) Normal
+              (3) Student t  \n""")
+    if pick== "1": # Uniforme
+        x = uniform.rvs(loc=-1, scale=2, size=N)  # Gera valores entre -1 e 1
+        y = uniform.rvs(loc=-1, scale=2, size=N)
+    if pick== "2": # Normal
+        x = norm.rvs(loc=0, scale=0.5, size=N)  # Média 0, desvio padrão 0.5
+        y = norm.rvs(loc=0, scale=0.5, size=N)
+    if pick== "3": # Student t
+        x = t.rvs(df=1, loc=0, scale=0.5, size=N)  # Média 0, desvio padrão 0.5
+        y = t.rvs(df=1, loc=0, scale=0.5, size=N)
+        
+
+    return [x,y]
+
+coords=Sort_points()
+plt.scatter(coords[0],coords[1])
+plt.title('Pontos Sorteados')
+plt.xlabel('Eixo x')
+plt.ylabel('Eixo y')
+plt.show()
